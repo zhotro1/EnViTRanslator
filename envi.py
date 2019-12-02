@@ -1,3 +1,4 @@
+import os, sys
 from googletrans import Translator
 
 import ctypes
@@ -6,24 +7,21 @@ import pyperclip
 import pyautogui as pag
 import multiprocessing
 
-from tkinter import Tk, mainloop, TOP, RIGHT, LEFT, BOTTOM, Toplevel, Label
+from tkinter import Tk, mainloop, TOP, BOTTOM, Label
 from tkinter.ttk import Button
-import os, sys
-
 
 
 datafile = "envi.ico" 
 if not hasattr(sys, "frozen"):
     datafile = os.path.join(os.path.dirname(__file__), datafile) 
 else: 
-	datafile = os.path.join(sys.prefix, datafile)
+    datafile = os.path.join(sys.prefix, datafile)
 
 
 translator = Translator()
 data = 'ok'
 
 user32 = ctypes.windll.user32
-kernel32 = ctypes.windll.kernel32
 
 previous_timestamp = None
 double_click_threshold = 0.300
